@@ -1,0 +1,51 @@
+# docker-compose down --volumes
+# docker-compose up --build
+# services:
+#     zookeeper:
+#         image: bitnami/zookeeper:latest
+#         ports:
+#             - 2181:2181
+#         environment:
+#             - ALLOW_ANONYMOUS_LOGIN=yes
+
+#     kafka:
+#         image: bitnami/kafka:latest
+#         ports:
+#             - 9092:9092
+#             - 9093:9093
+#         environment:
+#             - KAFKA_BROKER_ID=1
+#             - KAFKA_CFG_LISTENERS=PLAINTEXT://:9092
+#             - KAFKA_CFG_ADVERTISED_LISTENERS=PLAINTEXT://localhost:9092
+#             - KAFKA_CFG_ZOOKEEPER_CONNECT=zookeeper:2181
+#             - ALLOW_PLAINTEXT_LISTENER=yes
+#             - KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP=CLIENT:PLAINTEXT
+#             - KAFKA_CFG_LISTENERS=CLIENT://:9092
+#             - KAFKA_CFG_ADVERTISED_LISTENERS=CLIENT://localhost:9092
+#             - KAFKA_CFG_INTER_BROKER_LISTENER_NAME=CLIENT
+#         depends_on:
+#             - zookeeper
+
+    # postgres:
+    #     image: postgres
+    #     ports:
+    #         - 5432:5432
+    #     environment:
+    #         POSTGRES_USER: postgres
+    #         POSTGRES_PASSWORD: postgres
+    #         POSTGRES_DB: user_service
+
+    # user-service:
+    #     build:
+    #         context: .
+    #         dockerfile: Dockerfile
+    #     command: uvicorn --factory app.main.run:create_production_app --host 0.0.0.0 --port 8000 --reload
+    #     ports:
+    #         - 8000:8000
+    #     volumes:
+    #         - .:/usr/src/app
+    #     env_file:
+    #         - .env
+    #     depends_on:
+    #         - postgres
+    #         - kafka
