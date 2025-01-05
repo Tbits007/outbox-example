@@ -7,7 +7,7 @@ This repository demonstrates a microservices architecture composed of the follow
 - **Message Broker**: Facilitates asynchronous communication between services, ensuring reliable message delivery.  
 
 ## ⚙️ Architecture Overview  
-![image](https://github.com/user-attachments/assets/f88ef3c8-b0ce-4c89-ab48-518d7900e6c4)
+![image](https://github.com/user-attachments/assets/a2a29004-00ea-408d-a2e1-640251740225)
 
 
 ### Components:  
